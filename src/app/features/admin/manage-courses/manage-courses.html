@@ -1,0 +1,32 @@
+<app-search-header></app-search-header>
+<app-sidebar></app-sidebar>
+
+<main class="content">
+  <h1 class="page-title">Manage Courses</h1>
+
+  <div class="action-buttons">
+    <a routerLink="/add-course" class="btn btn-primary">Add Courses</a>
+    <a routerLink="/delete-courses" class="btn btn-secondary">Delete Courses</a>
+  </div>
+
+  <div class="courses-list">
+    <div class="course-card" *ngFor="let course of filteredCourses">
+      <div class="course-brand" [ngClass]="course.brandClass">
+        <i *if="course.icon" [class]="course.icon"></i>
+        <ng-container *ngIf="!course.icon">{{ course.brandText }}</ng-container>
+      </div>
+
+      <div class="course-details">
+        <h3>{{ course.title }}</h3>
+        <p class="author">by {{ course.author }}</p>
+        <div class="course-meta">
+          <span><i class="fa-regular fa-clock"></i> {{ course.duration }}</span>
+          <span><i class="fa-solid fa-book-open"></i> {{ course.lessonsCount }} lessons</span>
+          <span class="rating"><i class="fa-solid fa-star"></i> {{ course.rating }}</span>
+        </div>
+      </div>
+
+      <button type="button" class="btn-check" (click)="onCheckCourse(course)">Check Date</button>
+    </div>
+  </div>
+</main>

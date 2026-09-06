@@ -1,0 +1,102 @@
+
+<app-sidebar></app-sidebar>
+
+
+<div class="main-wrapper">
+  <!-- Header kept because it does NOT contain a search input -->
+  <header class="header">
+    <a routerLink="/manage-courses" class="back-link">&larr; Back To courses</a>
+    <div class="header-actions">
+      <button type="button" class="icon-btn" title="admin-button">
+        <i class="fa-regular fa-bell"></i>
+      </button>
+      <div class="user-avatar">
+        <a routerLink="/profile">Ys</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="content">
+    <div class="form-card">
+      <h1 class="form-title">Add a Course</h1>
+
+      <form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label class="input-label">Add Photo</label>
+          <label
+            class="upload-box"
+            for="course-photo"
+            [style.backgroundImage]="previewUrl ? 'url(' + previewUrl + ')' : 'none'"
+            [style.backgroundSize]="previewUrl ? 'cover' : 'initial'"
+            [style.backgroundPosition]="previewUrl ? 'center' : 'initial'"
+          >
+            <i *ngIf="!previewUrl" class="fa-solid fa-plus"></i>
+            <input
+              type="file"
+              id="course-photo"
+              accept="image/*"
+              hidden
+              (change)="onFileSelected($event)"
+            />
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label class="input-label" for="course-name">Course Name</label>
+          <input
+            type="text"
+            id="course-name"
+            class="form-control"
+            formControlName="name"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="input-label" for="course-instructor">Course Instructor</label>
+          <input
+            type="text"
+            id="course-instructor"
+            class="form-control"
+            formControlName="instructor"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="input-label" for="course-lesson">Course Lesson</label>
+          <input
+            type="text"
+            id="course-lesson"
+            class="form-control"
+            formControlName="lesson"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="input-label" for="course-description">Course Description</label>
+          <input
+            type="text"
+            id="course-description"
+            class="form-control"
+            formControlName="description"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="input-label" for="course-time">Course time</label>
+          <input
+            type="text"
+            id="course-time"
+            class="form-control"
+            formControlName="time"
+          />
+        </div>
+
+        <div class="form-actions">
+          <a routerLink="/manage-courses" class="btn btn-outline">Back</a>
+          <button type="submit" class="btn btn-submit">Done</button>
+        </div>
+      </form>
+    </div>
+  </main>
+</div>

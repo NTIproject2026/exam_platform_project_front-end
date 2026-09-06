@@ -1,0 +1,445 @@
+/* Devora Dashboard — component styles (Google Fonts loaded globally via index.html) */
+:host {
+  display: block;
+  --blue: #4461f2;
+  --blue-hover: #3651d4;
+  --blue-light: #f0f4fc;
+  --ink: #111927;
+  --text-muted: #6c737f;
+  --text-faint: #949ba5;
+  --border: #e0e0e9;
+  --input-bg: #f9f9f9;
+  --white: #ffffff;
+  --danger: #e0433c;
+  --danger-bg: #fdeeed;
+  --danger-hover: #c73832;
+
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 32px;
+
+  --shadow-panel: 0 24px 60px -30px rgba(17, 25, 39, 0.35);
+
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  font-family: var(--font-body);
+  color: var(--ink);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+/* ---------- shared card ---------- */
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-panel);
+  padding: 24px;
+}
+
+.card__title {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  margin: 0 0 20px;
+}
+
+/* ---------- avatar ---------- */
+
+.avatar {
+  border-radius: 50%;
+  background: var(--blue);
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.avatar--sm {
+  width: 34px;
+  height: 34px;
+  font-size: 13px;
+}
+
+.avatar--lg {
+  width: 64px;
+  height: 64px;
+  font-size: 22px;
+}
+
+/* ---------- buttons (same family as auth-shared) ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 10px 20px;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.05s ease;
+  white-space: nowrap;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--sm {
+  padding: 8px 16px;
+  font-size: 13px;
+}
+
+.btn--pill {
+  border-radius: 999px;
+}
+
+.btn--outline {
+  background: var(--white);
+  border-color: var(--border);
+  color: var(--ink);
+}
+
+.btn--outline:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.btn--primary {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.btn--primary:hover {
+  background: var(--blue-hover);
+}
+
+.btn--danger {
+  background: var(--danger);
+  color: var(--white);
+}
+
+.btn--danger:hover {
+  background: var(--danger-hover);
+}
+
+.btn--danger-soft {
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+
+.btn--danger-soft:hover {
+  background: #fbdedb;
+}
+
+/* ---------- form fields (same pattern as auth-shared) ---------- */
+
+.field {
+  margin-bottom: 18px;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.field__control input,
+.field__control textarea {
+  width: 100%;
+  background: var(--input-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 13px 16px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--ink);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.field__control textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.field__control input:focus,
+.field__control textarea:focus {
+  outline: none;
+  border-color: var(--blue);
+  background: var(--white);
+}
+
+/* ---------- inline status banner (mock submit feedback) ---------- */
+
+.form-banner {
+  display: none;
+  align-items: flex-start;
+  gap: 10px;
+  background: #eef4ec;
+  border: 1px solid #cfe6c9;
+  color: #2f6b27;
+  border-radius: var(--radius-sm);
+  padding: 13px 14px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+
+.form-banner.is-visible {
+  display: flex;
+}
+
+.form-banner svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ---------- profile page ---------- */
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.profile-header__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.profile-header__info h2 {
+  font-family: var(--font-heading);
+  font-size: 19px;
+  margin: 0 0 4px;
+}
+
+.profile-header__meta {
+  margin: 0 0 8px;
+  color: var(--text-muted);
+  font-size: 13.5px;
+}
+
+.profile-header__bio {
+  margin: 0;
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  max-width: 56ch;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  text-align: center;
+}
+
+.stat-card__value {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  color: var(--blue);
+  margin-bottom: 4px;
+}
+
+.stat-card__label {
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+.achievements-title {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  margin: 0 0 12px;
+}
+
+.achievement-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 0;
+}
+
+.achievement-row + .achievement-row {
+  border-top: 1px solid var(--border);
+}
+
+.achievement-row__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.achievement-row__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.achievement-row__body h4 {
+  margin: 0 0 2px;
+  font-size: 14.5px;
+}
+
+.achievement-row__body p {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+/* ---------- settings page ---------- */
+
+.settings-card {
+  max-width: 560px;
+}
+
+.avatar-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.settings-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 8px 0 20px;
+}
+
+.settings-danger-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.settings-danger-row h3 {
+  font-size: 14.5px;
+  margin: 0 0 2px;
+}
+
+.settings-danger-row p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.settings-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+/* ---------- logout page ---------- */
+
+.logout-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+}
+
+.logout-card {
+  max-width: 360px;
+  width: 100%;
+  text-align: center;
+  padding: 36px 28px;
+}
+
+.logout-card__icon {
+  width: 40px;
+  height: 40px;
+  color: var(--blue);
+  margin: 0 auto 18px;
+}
+
+.logout-card p {
+  margin: 0 0 24px;
+  font-size: 15px;
+  color: var(--ink);
+}
+
+.logout-card__actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 720px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .profile-header {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .field-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .settings-danger-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .settings-actions {
+    justify-content: stretch;
+  }
+
+  .settings-actions .btn {
+    flex: 1;
+  }
+}

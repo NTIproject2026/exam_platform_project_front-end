@@ -1,0 +1,73 @@
+
+<app-sidebar></app-sidebar>
+<form class="card settings-card" (ngSubmit)="onSubmit()" novalidate>
+  <h2 class="card__title">Profile Settings</h2>
+
+  <div class="form-banner" [class.is-visible]="savedBannerVisible">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="8" cy="8" r="8" fill="#2f6b27" />
+      <path d="M4.5 8.2 6.8 10.5 11.5 5.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+    <span>Changes saved.</span>
+  </div>
+
+  <div class="avatar-row">
+    <div class="avatar avatar--lg" [style.background-image]="avatarUrl ? 'url(' + avatarUrl + ')' : null"
+         [style.background-size]="'cover'">
+      <ng-container *ngIf="!avatarUrl">{{ initials }}</ng-container>
+    </div>
+    <button type="button" class="btn btn--outline btn--sm" (click)="onChangePhotoClick()">Change photo</button>
+    <input #photoInput type="file" accept="image/*" hidden (change)="onPhotoSelected($event)" />
+  </div>
+
+  <div class="field-row">
+    <div class="field">
+      <label for="settings-first-name">First Name</label>
+      <div class="field__control">
+        <input type="text" id="settings-first-name" name="firstName" [(ngModel)]="firstName" />
+      </div>
+    </div>
+    <div class="field">
+      <label for="settings-last-name">Last Name</label>
+      <div class="field__control">
+        <input type="text" id="settings-last-name" name="lastName" [(ngModel)]="lastName" />
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="settings-username">UserName</label>
+    <div class="field__control">
+      <input type="text" id="settings-username" name="username" [(ngModel)]="username" />
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="settings-email">Email</label>
+    <div class="field__control">
+      <input type="email" id="settings-email" name="email" [(ngModel)]="email" />
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="settings-bio">Bio</label>
+    <div class="field__control">
+      <textarea id="settings-bio" name="bio" [(ngModel)]="bio"></textarea>
+    </div>
+  </div>
+
+  <hr class="settings-divider" />
+
+  <div class="settings-danger-row">
+    <div>
+      <h3>Log out</h3>
+      <p>Sign out of Devora on this device</p>
+    </div>
+    <a routerLink="/logout" class="btn btn--danger-soft btn--pill">Log out</a>
+  </div>
+
+  <div class="settings-actions">
+    <button type="button" class="btn btn--outline" (click)="onCancel()">Cancel</button>
+    <button type="submit" class="btn btn--primary">Save changes</button>
+  </div>
+</form>

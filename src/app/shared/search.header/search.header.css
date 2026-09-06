@@ -1,0 +1,141 @@
+/* ==================================================
+   TOP BAR
+================================================== */
+
+.topbar {
+    height: 78px;
+
+    background-color: #ffffff;
+
+    display: flex;
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 35px;
+}
+
+
+/* ==================================================
+   SEARCH
+================================================== */
+
+.search-container {
+    position: relative;
+
+    width: 320px;
+}
+
+.search-container input {
+    width: 100%;
+    height: 40px;
+
+    border: none;
+
+    outline: none;
+
+    border-radius: 22px;
+
+    background-color: #f0f0f6;
+
+    padding: 0 18px 0 43px;
+
+    font-size: 13px;
+
+    color: #333;
+}
+
+.search-container input::placeholder {
+    color: #858592;
+}
+
+.search-icon {
+    position: absolute;
+
+    left: 15px;
+    top: 10px;
+
+    color: #777;
+
+    font-size: 17px;
+
+    z-index: 2;
+}
+
+
+/* ==================================================
+   AUTOCOMPLETE
+================================================== */
+
+.autocomplete {
+    display: none;
+
+    position: absolute;
+
+    top: 47px;
+    left: 0;
+
+    width: 100%;
+
+    background-color: white;
+
+    border-radius: 8px;
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+
+    z-index: 20;
+
+    overflow: hidden;
+}
+
+.autocomplete-item {
+    padding: 12px 15px;
+
+    font-size: 13px;
+
+    cursor: pointer;
+}
+
+.autocomplete-item:hover {
+    background-color: #f1f1ff;
+}
+
+
+/* ==================================================
+   TOPBAR ACTIONS
+================================================== */
+
+.topbar-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+}
+
+.notification {
+    font-size: 21px;
+
+    color: #444;
+
+    cursor: pointer;
+}
+
+.user-avatar {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background-color: #4f46e5;
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}

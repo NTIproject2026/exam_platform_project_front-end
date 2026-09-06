@@ -1,0 +1,102 @@
+
+<app-sidebar></app-sidebar>
+
+
+<div class="main-wrapper">
+  <header class="header">
+    <a href="../Manage_Courses/Manage_Courses.html" class="back-link">&larr; Back To Courses</a>
+    <div class="header-actions">
+      <button class="icon-btn" type="button"><i class="fa-regular fa-bell" title="icon"></i></button>
+      <div class="user-avatar"><a href="#profile">Ys</a></div>
+    </div>
+  </header>
+
+  <main class="content">
+    <div class="top-section">
+      <h1 class="page-title">Quizzes Management</h1>
+      <button class="btn-primary" (click)="openAddModal()">
+        <i class="fa-solid fa-plus"></i> Create New Quiz
+      </button>
+    </div>
+
+    <!-- Quizzes Grid -->
+    <div class="quizzes-grid">
+      <div class="quiz-card" *ngFor="let quiz of quizzes">
+        <div class="quiz-card-header">
+          <span class="badge" [ngClass]="quiz.status === 'Active' ? 'badge-active' : 'badge-draft'">
+            {{ quiz.status }}
+          </span>
+          <div class="card-actions">
+            <button class="btn-icon-action edit-btn" (click)="openEditModal(quiz)" title="edit">
+              <i class="fa-solid fa-pen"></i>
+            </button>
+            <button class="btn-icon-action delete-btn" (click)="openDeleteModal(quiz.id)" title="delete">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
+        </div>
+        <h3 class="quiz-title">{{ quiz.title }}</h3>
+        <span class="quiz-course-tag"><i class="fa-solid fa-book"></i> {{ quiz.course }}</span>
+        <div class="quiz-meta">
+          <span><i class="fa-regular fa-clock"></i> {{ quiz.time }} Mins</span>
+          <span><i class="fa-solid fa-list-check"></i> {{ quiz.questions }} Questions</span>
+        </div>
+        <div class="quiz-footer">
+          <span class="quiz-attempts"><i class="fa-solid fa-users"></i> {{ quiz.attempts }} Attempts</span>
+          <button class="btn-secondary" type="button">View Details</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- Delete Modal -->
+<div class="modal-overlay" [class.active]="isDeleteModalOpen">
+  <div class="modal-box">
+    <div class="modal-icon"><i class="fa-solid fa-trash"></i></div>
+    <h3>Delete Quiz</h3>
+    <p>Are you sure you want to delete this quiz? This action cannot be undone.</p>
+    <div class="modal-actions">
+      <button class="btn-cancel" (click)="closeDeleteModal()" type="button">Cancel</button>
+      <button class="btn-confirm" (click)="confirmDelete()" type="button">Delete</button>
+    </div>
+  </div>
+</div>
+
+<!-- Quiz Modal (Add / Edit) -->
+<div class="modal-overlay" [class.active]="isQuizModalOpen">
+  <div class="modal-box modal-form">
+    <h3>{{ modalTitle }}</h3>
+    <form [formGroup]="quizForm" (ngSubmit)="saveQuiz()">
+      <div class="form-group">
+        <label for="inputQuizTitle">Quiz Title</label>
+        <input type="text" id="inputQuizTitle" formControlName="title" placeholder="e.g., HTML Fundamentals Quiz" />
+      </div>
+      <div class="form-group">
+        <label for="inputCourseName">Course Name</label>
+        <input type="text" id="inputCourseName" formControlName="course" placeholder="e.g., HTML COURSES" />
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="inputQuizTime">Duration (Mins)</label>
+          <input type="number" id="inputQuizTime" formControlName="time" min="1" placeholder="20" />
+        </div>
+        <div class="form-group">
+          <label for="inputQuizQuestions">Questions Count</label>
+          <input type="number" id="inputQuizQuestions" formControlName="questions" min="1" placeholder="15" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputQuizStatus">Status</label>
+        <select id="inputQuizStatus" formControlName="status">
+          <option value="Active">Active</option>
+          <option value="Draft">Draft</option>
+        </select>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn-cancel" (click)="closeQuizModal()">Cancel</button>
+        <button type="submit" class="btn-primary-modal" [disabled]="quizForm.invalid">Save</button>
+      </div>
+    </form>
+  </div>
+</div>

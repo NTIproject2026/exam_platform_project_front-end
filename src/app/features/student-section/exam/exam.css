@@ -1,0 +1,157 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: '42dot Sans', sans-serif;
+  background: #eef2fe;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-weight: 800;
+  font-style: ExtraBold;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.quiz-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #000000;
+}
+
+.timer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #4461F2;
+  padding: 6px 16px 6px 14px;
+  border-radius: 16px;
+}
+
+.clock-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.time {
+  font-size: 15px;
+  font-weight: 800;
+  color: white;
+}
+
+.question-number {
+  font-size: 15px;
+  font-weight: 800;
+  color: #8A8A8A;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background: #acb6d3;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #4461F2;
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.question-text {
+  font-size: 25px;
+  font-weight: 800;
+  color: #000000;
+  line-height: 1.4;
+  margin-bottom: 25px;
+  max-width: 578px;
+}
+
+.question-container {
+  width: 741px;
+  height: 388px;
+  top: 230px;
+  left: 339px;
+  border-radius: 16px;
+  background-color: #ffffff;
+  padding: 25px 30px 10px 25px;
+  margin-bottom: 25px;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.option.selected {
+  background-color: #4f46e5;
+  border: 1px #4461F2 solid;
+  color: #ffffff;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border-radius: 16px;
+  border: 1px #4461F2 solid;
+  background-color: #fdfdfd;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-prev {
+  color: #4f46e5;
+  width: 209px;
+  height: 47px;
+  border-radius: 16px;
+  background-color: #ffffff;
+  border: 1px #4461F2 solid;
+  font-size: 22px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-exit {
+  color: #8e8e8e;
+  font-size: 22px;
+  background-color: #eef2fe;
+  border-radius: 16px;
+  border: 1px #eef2fe solid;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-next {
+  width: 209px;
+  height: 47px;
+  border-radius: 16px;
+  background-color: #4461F2;
+  border: 1px #4461F2 solid;
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 600;
+  cursor: pointer;
+}

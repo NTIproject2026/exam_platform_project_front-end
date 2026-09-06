@@ -1,0 +1,145 @@
+<div class="result-page">
+
+  <!-- Result Icon -->
+  <div
+    class="result-icon"
+    [class.passed]="result?.passed"
+    [class.failed]="!result?.passed">
+
+    <span>
+      {{ result?.passed ? '✓' : '✕' }}
+    </span>
+
+  </div>
+
+
+  <!-- Title -->
+  <h1>
+    {{ result?.passed ? 'Nice work !' : 'Keep practicing !' }}
+  </h1>
+
+
+  <!-- Subtitle -->
+  <p class="subtitle">
+
+    @if (result?.passed) {
+      You scored {{ result?.percentage }}% and passed the quiz
+    }
+    @else {
+      You scored {{ result?.percentage }}% . You need 60% to pass the quiz
+    }
+
+  </p>
+
+
+  <!-- Statistics -->
+  <div class="stats">
+
+    <div class="stat-card">
+
+      <span class="stat-number score">
+        {{ result?.percentage }}%
+      </span>
+
+      <span class="stat-title">
+        Score
+      </span>
+
+    </div>
+
+
+    <div class="stat-card">
+
+      <span class="stat-number">
+        {{ result?.score }}/{{ result?.total }}
+      </span>
+
+      <span class="stat-title">
+        Correct answers
+      </span>
+
+    </div>
+
+
+    <div class="stat-card">
+
+      <span class="stat-number">
+        {{ minutes }}:{{ seconds }}
+      </span>
+
+      <span class="stat-title">
+        Time spent
+      </span>
+
+    </div>
+
+  </div>
+
+
+  <!-- Questions Result -->
+  <div class="questions-result">
+
+    @for (q of questions; track q.id; let i = $index) {
+
+      <div class="question-row">
+
+        <div class="question">
+
+          <div class="question-text">
+            Q{{ i + 1 }} - {{ q.question }}
+          </div>
+
+
+          <div class="correct-answer">
+            <strong>Correct Answer:</strong>
+            {{ q.options[q.correct] }}
+          </div>
+
+
+          <div class="explanation">
+            <strong>Explanation:</strong>
+            {{ q.explanation }}
+          </div>
+
+        </div>
+
+
+        <span
+          class="status"
+          [class.correct]="isCorrect(q.id, q.correct)"
+          [class.wrong]="!isCorrect(q.id, q.correct)">
+
+          {{ isCorrect(q.id, q.correct) ? 'Correct' : 'Wrong' }}
+
+        </span>
+
+      </div>
+
+    }
+
+  </div>
+
+
+  <!-- Buttons -->
+  <div class="buttons">
+
+    <button
+      class="retry-btn"
+      (click)="retryQuiz()">
+
+      Retry Quiz
+
+    </button>
+
+
+    <button
+      class="continue-btn"
+      (click)="continueLearning()">
+
+      Continue Learning
+
+    </button>
+
+  </div>
+
+</div>

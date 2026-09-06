@@ -1,0 +1,26 @@
+<app-sidebar></app-sidebar>
+<div class="layout">
+  <!-- Main Content -->
+  <main class="main-content">
+    <header class="top-bar">
+      <h1>Achievements</h1>
+      <div class="user-actions">
+        <button class="icon-btn">🔔</button>
+        <div class="avatar">Ys</div>
+      </div>
+    </header>
+
+    <div class="cards-container">
+      <div class="card" *ngFor="let item of achievements">
+        <div class="card-left">
+          <img [src]="item.logo" [alt]="item.title" class="tech-logo" title="card"/>
+          <div class="card-info">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.finishedDate }}</p>
+          </div>
+        </div>
+        <button class="btn-view">View</button>
+      </div>
+    </div>
+  </main>
+</div>

@@ -1,0 +1,25 @@
+<aside class="sidebar">
+
+  <!-- Logo Section -->
+  <div class="sidebar-logo">
+    <div class="logo-icon">{{ logoIcon }}</div>
+    <span>{{ logoText }}</span>
+  </div>
+
+  <!-- Navigation Section -->
+  <nav class="sidebar-nav">
+    <a
+      *ngFor="let item of navItems"
+      [routerLink]="item.route"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="nav-item"
+      [class.logout]="item.isLogout"
+      (click)="handleNavClick(item)"
+    >
+      <span class="nav-icon">{{ item.icon }}</span>
+      <span>{{ item.label }}</span>
+    </a>
+  </nav>
+
+</aside>

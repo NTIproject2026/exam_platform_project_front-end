@@ -1,0 +1,99 @@
+<div class="dashboard-layout">
+
+  <!-- ================= SIDEBAR ================= -->
+  <app-sidebar></app-sidebar>
+
+  <!-- ================= MAIN CONTENT ================= -->
+  <main class="main-content">
+
+    <!-- ================= TOP BAR ================= -->
+    <app-search-header></app-search-header>
+
+    <!-- ================= COURSES SECTION ================= -->
+    <section class="courses-section">
+
+      <!-- TITLE -->
+      <div class="page-heading">
+        <h1>Explore courses</h1>
+        <p>courses across every stage of your coding journey.</p>
+      </div>
+
+      <!-- ================= FILTERS ================= -->
+      <div class="filters">
+        @for (category of categories; track category) {
+          <button
+            class="category"
+            [class.active]="selectedCategory === category"
+            (click)="setCategory(category)">
+            {{ category }}
+          </button>
+        }
+      </div>
+
+      <!-- ================= ADVANCED FILTER ================= -->
+      <div class="advanced-filters">
+
+  <label for="level-filter">Level</label>
+  <select id="level-filter" [(ngModel)]="selectedLevel">
+    <option value="All">All Levels</option>
+    <option value="Beginner">Beginner</option>
+    <option value="Intermediate">Intermediate</option>
+    <option value="Advanced">Advanced</option>
+  </select>
+
+  <label for="price-filter">Price</label>
+  <select id="price-filter" [(ngModel)]="selectedPrice">
+    <option value="All">All Prices</option>
+    <option value="Free">Free</option>
+    <option value="Paid">Paid</option>
+  </select>
+
+</div>
+
+      <!-- RESULTS -->
+      <div class="results-count">
+        <span>{{ filteredCourses.length }}</span> results
+      </div>
+
+      <!-- ================= COURSES ================= -->
+      <div class="courses-container">
+        @for (course of filteredCourses; track course.id) {
+          <div class="course-card" (click)="navigateToLesson(course.id)">
+
+            <div class="course-icon" [ngClass]="course.iconClass">
+              {{ course.icon }}
+            </div>
+
+            <div class="course-info">
+              <h3>{{ course.title }}</h3>
+              <p class="instructor">by {{ course.instructor }}</p>
+
+              <div class="course-meta">
+                <span>◷ {{ course.duration }}</span>
+                <span>▣ {{ course.lessons }} lessons</span>
+                <span>★ {{ course.rating }}</span>
+              </div>
+            </div>
+
+            <div class="course-action">
+              <span class="level">{{ course.level }}</span>
+              <button class="enroll-btn" (click)="enrollCourse($event, course.id)">
+                Enroll Now
+              </button>
+            </div>
+
+          </div>
+        }
+      </div>
+
+      <!-- EMPTY STATE -->
+      @if (filteredCourses.length === 0) {
+        <div class="empty-state" >
+          <h2>No courses found</h2>
+          <p>Try another search or change your filters.</p>
+        </div>
+      }
+
+    </section>
+  </main>
+</div>

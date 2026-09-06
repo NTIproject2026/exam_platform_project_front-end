@@ -1,0 +1,38 @@
+
+<app-sidebar></app-sidebar>
+<div class="card profile-header">
+  <div class="avatar avatar--lg">{{ initials }}</div>
+  <div class="profile-header__info">
+    <h2>{{ fullName }}</h2>
+    <p class="profile-header__meta">{{ username }} · {{ email }}</p>
+    <p class="profile-header__bio">{{ bio }}</p>
+  </div>
+  <a routerLink="/settings" class="btn btn--outline">Edit Profile</a>
+</div>
+
+<div class="stats-grid">
+  <div class="stat-card" *ngFor="let stat of stats">
+    <div class="stat-card__value">{{ stat.value }}</div>
+    <div class="stat-card__label">{{ stat.label }}</div>
+  </div>
+</div>
+
+<h3 class="achievements-title">Achievements</h3>
+<div class="card">
+  <div class="achievement-row" *ngFor="let achievement of achievements">
+    <div class="achievement-row__icon" [style.background]="achievement.iconBg">
+      <svg *ngIf="achievement.icon === 'html'" viewBox="0 0 24 24" width="22" height="22" fill="#fff">
+        <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/>
+      </svg>
+      <svg *ngIf="achievement.icon === 'css'" viewBox="0 0 24 24" width="22" height="22" fill="#fff">
+        <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z"/>
+      </svg>
+      <span *ngIf="achievement.icon === 'js'" >JS</span>
+    </div>
+    <div class="achievement-row__body">
+      <h4>{{ achievement.title }}</h4>
+      <p>Finished {{ achievement.finishedOn }}</p>
+    </div>
+    <button type="button" class="btn btn--primary" (click)="onViewAchievement(achievement)">View</button>
+  </div>
+</div>

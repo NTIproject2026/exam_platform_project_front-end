@@ -1,0 +1,446 @@
+* {
+  box-sizing: border-box;
+}
+
+.progress-layout {
+  min-height: 100vh;
+  display: flex;
+  background: #eef3ff;
+}
+
+/* =========================
+   Main
+========================= */
+
+.progress-main {
+  flex: 1;
+  min-width: 0;
+}
+
+/* =========================
+   Header
+========================= */
+
+.page-header {
+  height: 148px;
+  background: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 45px 0 32px;
+
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.page-header h1 {
+  margin: 0;
+
+  font-size: 32px;
+  font-weight: 700;
+
+  color: #090909;
+}
+
+.user-avatar {
+  width: 45px;
+  height: 45px;
+
+  border-radius: 50%;
+
+  background: #5146df;
+  color: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 17px;
+  font-weight: 600;
+}
+
+/* =========================
+   Content
+========================= */
+
+.progress-content {
+  padding: 25px 58px 45px;
+}
+
+/* =========================
+   Statistics
+========================= */
+
+.stats-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 13px;
+
+  margin-bottom: 26px;
+}
+
+.stat-card {
+  height: 115px;
+
+  background: #ffffff;
+
+  border: 1px solid #586ce0;
+
+  border-radius: 16px;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+}
+
+.stat-card strong {
+  font-size: 35px;
+  line-height: 1;
+
+  color: #080808;
+}
+
+.stat-card span {
+  margin-top: 8px;
+
+  font-size: 22px;
+
+  color: #666666;
+}
+
+/* =========================
+   Middle
+========================= */
+
+.middle-grid {
+  display: grid;
+
+  grid-template-columns: 1.4fr 1fr;
+
+  gap: 40px;
+
+  margin-bottom: 32px;
+}
+
+/* =========================
+   Weekly Activity
+========================= */
+
+.activity-card,
+.skills-card {
+  height: 265px;
+
+  background: #ffffff;
+
+  border: 1px solid #586ce0;
+
+  border-radius: 17px;
+
+  padding: 26px;
+}
+
+.activity-card h2,
+.skills-card h2 {
+  margin: 0;
+
+  font-size: 24px;
+
+  color: #0a0a0a;
+}
+
+.chart {
+  height: 185px;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: flex-end;
+
+  padding: 0 20px 4px;
+}
+
+.chart-line {
+  width: 100%;
+
+  height: 1px;
+
+  background: #5365db;
+
+  margin-bottom: 13px;
+}
+
+.days {
+  display: flex;
+
+  justify-content: space-between;
+
+  color: #111;
+
+  font-size: 14px;
+}
+
+/* =========================
+   Skills
+========================= */
+
+.skills {
+  margin-top: 58px;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 34px 20px;
+
+  padding: 0 23px;
+}
+
+.skills span {
+  height: 40px;
+
+  border-radius: 22px;
+
+  background: #4c61df;
+
+  color: #ffffff;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 21px;
+  font-weight: 500;
+}
+
+/* =========================
+   Courses
+========================= */
+
+.courses-section h2 {
+  margin: 0 0 16px 12px;
+
+  font-size: 24px;
+
+  color: #080808;
+}
+
+.courses-card {
+  background: #ffffff;
+
+  border: 1px solid #586ce0;
+
+  border-radius: 28px;
+
+  padding: 25px 42px;
+}
+
+/* =========================
+   Course Row
+========================= */
+
+.course-row {
+  min-height: 88px;
+
+  display: flex;
+
+  align-items: center;
+
+  position: relative;
+}
+
+.course-row + .course-row {
+  margin-top: 20px;
+}
+
+.course-icon {
+  width: 50px;
+  height: 50px;
+
+  border-radius: 15px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 20px;
+  font-weight: bold;
+
+  margin-right: 22px;
+}
+
+.course-icon.react {
+  background: #c9c5f3;
+  color: #4b42d9;
+}
+
+.course-icon.git {
+  background: #65d16c;
+  color: #ffffff;
+}
+
+.course-icon.python {
+  background: #e7c36d;
+  color: #ffffff;
+}
+
+/* =========================
+   Course Details
+========================= */
+
+.course-details {
+  flex: 1;
+
+  padding-right: 70px;
+}
+
+.course-details h3 {
+  margin: 0 0 3px;
+
+  font-size: 18px;
+
+  color: #111111;
+}
+
+.course-details p {
+  margin: 0 0 13px;
+
+  font-size: 13px;
+
+  color: #777777;
+}
+
+/* =========================
+   Progress Bar
+========================= */
+
+.progress {
+  width: 100%;
+
+  height: 7px;
+
+  background: #e9edf9;
+
+  border-radius: 10px;
+
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+
+  border-radius: 10px;
+}
+
+.react-fill {
+  background: #5045dd;
+}
+
+.git-fill {
+  background: #65d16c;
+}
+
+.python-fill {
+  background: #e3bd61;
+}
+
+/* =========================
+   Percentage
+========================= */
+
+.course-percent {
+  position: absolute;
+
+  right: 0;
+  top: 0;
+
+  padding: 4px 12px;
+
+  border-radius: 20px;
+
+  font-size: 16px;
+
+  color: #111111;
+}
+
+.react-percent {
+  background: #c9c5f3;
+}
+
+.git-percent {
+  background: #a9e8aa;
+}
+
+.python-percent {
+  background: #efd589;
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 1100px) {
+
+  .progress-content {
+    padding: 25px 30px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .middle-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 650px) {
+
+  .progress-content {
+    padding: 20px 15px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card span {
+    font-size: 17px;
+  }
+
+  .page-header {
+    height: 100px;
+    padding: 0 20px;
+  }
+
+  .page-header h1 {
+    font-size: 25px;
+  }
+
+  .courses-card {
+    padding: 20px;
+  }
+
+  .course-details {
+    padding-right: 55px;
+  }
+
+  .skills {
+    gap: 15px;
+  }
+
+  .skills span {
+    font-size: 16px;
+  }
+}

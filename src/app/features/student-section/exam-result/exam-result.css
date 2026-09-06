@@ -1,0 +1,325 @@
+* {
+    box-sizing: border-box;
+}
+
+
+.result-page {
+    width: 100%;
+    min-height: 100vh;
+
+    background-color: #f1f4ff;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 35px 50px 45px;
+
+    font-family: "Inter", Arial, sans-serif;
+    color: #111827;
+}
+
+
+/* Result Icon */
+
+.result-icon {
+    width: 68px;
+    height: 68px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 10px;
+}
+
+
+.result-icon span {
+    font-size: 62px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+
+.result-icon.passed {
+    background-color: #8ddd92;
+    color: #00a651;
+}
+
+
+.result-icon.failed {
+    background-color: #db8585;
+    color: #ea0a0a;
+}
+
+
+/* Title */
+
+h1 {
+    font-size: 35px;
+    font-weight: 800;
+    margin: 0 0 10px;
+}
+
+
+.subtitle {
+    font-size: 18px;
+    color: #747474;
+
+    margin: 0 0 17px;
+}
+
+
+/* Stats */
+
+.stats {
+    width: 880px;
+
+    display: flex;
+    justify-content: space-between;
+
+    gap: 34px;
+
+    margin-bottom: 22px;
+}
+
+
+.stat-card {
+    width: 287px;
+    height: 117px;
+
+    background-color: #fffdfd;
+
+    border: 1px solid #4461f2;
+
+    border-radius: 16px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+.stat-number {
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 100%;
+}
+
+
+.stat-number.score {
+    color: #4b63db;
+}
+
+
+.stat-title {
+    font-size: 15px;
+    font-weight: 500;
+
+    color: #747474;
+
+    margin-top: 5px;
+}
+
+
+/* Questions */
+
+.questions-result {
+    width: 920px;
+
+    min-height: 158px;
+
+    border: 1px solid #4461f2;
+
+    border-radius: 30px;
+
+    background-color: #ffffff;
+
+    overflow: hidden;
+
+    margin-bottom: 30px;
+}
+
+
+.question-row {
+    min-height: 70px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 15px 21px 15px 32px;
+}
+
+
+.question-row:not(:last-child) {
+    border-bottom: 1px solid #b7c1d8;
+}
+
+
+.question {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+
+.question-text {
+    font-size: 12px;
+    font-weight: 600;
+
+    white-space: pre-line;
+}
+
+
+.correct-answer {
+    font-size: 12px;
+    font-weight: 500;
+
+    color: #111;
+}
+
+
+.explanation {
+    font-size: 12px;
+    font-weight: 400;
+
+    color: #666;
+}
+
+
+/* Status */
+
+.status {
+    min-width: 67px;
+    height: 25px;
+
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    flex-shrink: 0;
+}
+
+
+.correct {
+    background-color: #8ddd92;
+    color: #000000;
+}
+
+
+.wrong {
+    background-color: #db8585;
+    color: #000000;
+}
+
+
+/* Buttons */
+
+.buttons {
+    display: flex;
+
+    align-items: center;
+
+    gap: 284px;
+}
+
+
+.retry-btn,
+.continue-btn {
+    width: 210px;
+    height: 67px;
+
+    border-radius: 32px;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+.retry-btn {
+    background-color: #ffffff;
+
+    color: #000000;
+
+    border: 1px solid #4461f2;
+}
+
+
+.continue-btn {
+    background-color: #4461f2;
+
+    color: #ffffff;
+
+    border: 1px solid #4461f2;
+}
+
+
+/* Responsive */
+
+@media (max-width: 1000px) {
+
+    .stats {
+        width: 90%;
+    }
+
+    .questions-result {
+        width: 90%;
+    }
+
+    .buttons {
+        gap: 80px;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .result-page {
+        padding: 25px 15px;
+    }
+
+    .stats {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stat-card {
+        width: 90%;
+    }
+
+    .questions-result {
+        width: 100%;
+    }
+
+    .question-row {
+        align-items: flex-start;
+    }
+
+    .buttons {
+        width: 100%;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+}

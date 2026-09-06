@@ -1,0 +1,108 @@
+<!-- ================= NAVBAR ================= -->
+<header class="navbar">
+  <div class="logo">
+    <div class="logo-icon">D</div>
+    <span>Devora</span>
+  </div>
+
+  <nav class="nav-links">
+    <a routerLink="/courses">Courses</a>
+    <a routerLink="/learning-paths">Learning Paths</a>
+    <a routerLink="/pricing">Pricing</a>
+    <a routerLink="/about">About</a>
+  </nav>
+
+  <div class="nav-actions">
+    <a href="#" class="sign-in" (click)="onSignIn($event)">Sign in</a>
+    <button class="get-started" (click)="onGetStarted()">Get started</button>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<main>
+  <section class="hero">
+    <div class="hero-content">
+
+      <!-- LEFT SIDE -->
+      <div class="hero-text">
+        <h1>
+          Build your skills,<br>
+          shape your future
+          <span>with<br>code</span>
+        </h1>
+
+        <p>
+          Structured courses, hands-on lessons,<br>
+          and real feedback — everything you<br>
+          need to go from your first line of code<br>
+          to your first job.
+        </p>
+
+        <div class="hero-buttons">
+          <button class="primary-btn" (click)="onStartLearning()">
+            Start Learning Free
+          </button>
+
+          <button class="secondary-btn" (click)="onBrowseCourses()">
+            Browse Courses
+          </button>
+        </div>
+
+        <!-- STATISTICS -->
+        <div class="statistics">
+          <div class="stat">
+            <h3>120k+</h3>
+            <p>Student Learning</p>
+          </div>
+
+          <div class="stat">
+            <h3>340k+</h3>
+            <p>Courses & Paths</p>
+          </div>
+
+          <div class="stat">
+            <h3>4.3/5</h3>
+            <p>Average Rating</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT SIDE -->
+      <div class="code-window">
+        <div class="window-header">
+          <span class="circle red"></span>
+          <span class="circle yellow"></span>
+          <span class="circle green"></span>
+        </div>
+
+        <div class="code-content">
+          <p>
+            <span class="blue">function</span>
+            <span class="yellow">greet</span>(name) &#123;
+          </p>
+
+          <p class="indent">
+            <span class="blue">return</span>
+            <span class="green">
+              `Hello $&#123;name&#125;`;
+            </span>
+          </p>
+
+          <p> &#125;</p>
+
+          <br>
+
+          <p class="comment">
+            // welcome to Devora 👋
+          </p>
+
+          <p>
+            <span class="yellow">greet</span>
+            <span class="green">("Developer")</span>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>

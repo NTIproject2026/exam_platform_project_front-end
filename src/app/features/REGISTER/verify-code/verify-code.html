@@ -1,0 +1,58 @@
+<div class="auth-shell">
+  <aside class="auth-panel">
+    <div class="auth-panel__content">
+      <h1 class="auth-panel__title">Welcome to<span>Devora</span></h1>
+      <p class="auth-panel__text">
+        Build your skills, shape your future with code. Start your coding
+        journey and learn step by step, from beginner to professional.
+      </p>
+    </div>
+    <img
+      class="auth-panel__illustration"
+      src="assets/illustration.png"
+      alt="Illustration of a student studying programming and math concepts"
+    />
+  </aside>
+
+  <main class="auth-main">
+    <nav class="auth-nav">
+      <a class="link-accent" routerLink="/signin">Sign in</a>
+      <a class="btn btn--outline btn--sm" routerLink="/signup">Register</a>
+    </nav>
+
+    <div class="auth-form-wrap">
+      <form class="auth-form" (ngSubmit)="onSubmit()" novalidate>
+        <div class="mobile-brand">Welcome to <span>Devora</span></div>
+        <h2 class="auth-form__title">Verify code</h2>
+        <p class="auth-form__subtitle">Enter the 6-digit code we sent to your email.</p>
+
+        <div class="field field--code" [class.has-error]="errors.code">
+          <label for="verify-code">Code</label>
+          <div class="field__control">
+            <input
+              type="text"
+              id="verify-code"
+              name="code"
+              placeholder="000000"
+              inputmode="numeric"
+              maxlength="6"
+              autocomplete="one-time-code"
+              [class.has-error]="errors.code"
+              [(ngModel)]="code"
+            />
+          </div>
+          <p class="field__error">{{ errors.code }}</p>
+        </div>
+
+        <div class="field-hint field-hint--split">
+          <span>Didn't receive a code?</span>
+          <button type="button" class="link-inline" [disabled]="resendDisabled" (click)="onResend()">
+            {{ resendLabel }}
+          </button>
+        </div>
+
+        <button type="submit" class="btn btn--primary btn--block">Verify</button>
+      </form>
+    </div>
+  </main>
+</div>

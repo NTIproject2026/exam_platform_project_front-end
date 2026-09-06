@@ -1,0 +1,29 @@
+<!-- Start Of Sidebar -->
+<aside class="sidebar">
+
+  <!-- Start of logo code -->
+  <div class="brand">
+    <div class="brand-icon">{{ brandIconLetter }}</div>
+    {{ brandName }}
+  </div>
+  <!-- End of logo code -->
+
+  <!-- Start Of Sidebar Choices -->
+  <ul class="nav-list">
+    <li
+      *ngFor="let item of navItems"
+      class="nav-item"
+      [class.logout-item]="item.isLogout"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <a [routerLink]="item.route" (click)="handleNavClick(item)">
+        <i [class]="item.iconClass"></i>
+        <span>{{ item.label }}</span>
+      </a>
+    </li>
+  </ul>
+  <!-- End Of Sidebar Choices -->
+
+</aside>
+<!-- End Of Sidebar -->

@@ -1,0 +1,59 @@
+<div class="quiz-container" id="quizContainer">
+  <!-- Header kept as per rules (no search bar present) -->
+  <div class="header">
+    <h1 class="quiz-title" id="quizTitle">JavaScript Arrays Quiz</h1>
+    <div class="timer">
+      <svg class="clock-icon" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/>
+        <polyline points="12 6 12 12 16 14"/>
+      </svg>
+      <span class="time" id="timerDisplay">{{ timerDisplayFormatted }}</span>
+    </div>
+  </div>
+
+  <p class="question-number" id="questionNumber">
+    Question {{ currentQuestionIndex + 1 }} of {{ questions.length }}
+  </p>
+
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressFill" [style.width.%]="progressPercentage"></div>
+  </div><br><br>
+
+  <div class="question-container">
+    <p class="question-text" id="questionText">
+      {{ currentQuestion.question }}
+    </p>
+
+    <div class="options" id="optionsContainer">
+      <button
+        *ngFor="let option of currentQuestion.options; let i = index"
+        class="option"
+        [class.selected]="isOptionSelected(i)"
+        (click)="selectOption(i)">
+        {{ option }}
+      </button>
+    </div>
+  </div>
+
+  <div class="buttons">
+    <button
+      class="btn-prev"
+      id="prevBtn"
+      (click)="goToPrevious()"
+      [style.opacity]="isFirstQuestion ? '0.4' : '1'"
+      [style.pointerEvents]="isFirstQuestion ? 'none' : 'auto'">
+      ← Previous
+    </button>
+
+    <button class="btn-exit" id="exitBtn" (click)="exitQuiz()">Exit Quiz</button>
+
+    <button
+      class="btn-next"
+      id="nextBtn"
+      (click)="goToNext()"
+      [style.opacity]="!hasSelectedCurrentAnswer ? '0.5' : '1'"
+      [style.pointerEvents]="!hasSelectedCurrentAnswer ? 'none' : 'auto'">
+      <span id="nexttext">{{ isLastQuestion ? 'Submit Quiz' : 'Next Question →' }}</span>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+    <div class="lesson-page">
+
+        <!-- HEADER -->
+        <header class="lesson-header">
+            <div class="header-course">
+                <button id="backToCourse" class="back-btn">
+                    ← Back to course
+                </button>
+                <h2 id="courseTitle">Loading...</h2>
+            </div>
+
+            <div class="lesson-progress">
+                <div class="progress-line">
+                    <div id="progressFill" class="progress-fill"></div>
+                </div>
+                <span id="lessonNumber">0/0</span>
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <main class="lesson-layout">
+
+            <!-- LESSON CONTENT -->
+            <section class="lesson-content">
+                <h1>Lesson Content:</h1>
+
+                <div id="lessonText" class="lesson-text">
+                    <!-- Injected by JS -->
+                </div>
+
+                <h1 class="code-title">Lesson Code:</h1>
+
+                <div class="code-editor">
+                    <div class="editor-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <pre><code id="codeBlock"><!-- Injected by JS --></code></pre>
+                </div>
+
+                <!-- ACTIONS -->
+                <div class="lesson-actions">
+                    <button id="previousLesson" class="previous-btn">
+                        ← &nbsp; Previous Lesson
+                    </button>
+                    <button id="completeLesson" class="complete-btn">
+                        Mark as completed & continue →
+                    </button>
+                </div>
+            </section>
+
+            <!-- CURRICULUM SIDEBAR -->
+            <aside class="curriculum">
+                <h2>Course curriculum</h2>
+                <div id="modulesContainer">
+                    <!-- Modules & Lessons Injected by JS -->
+                </div>
+            </aside>
+
+        </main>
+
+    </div>
+

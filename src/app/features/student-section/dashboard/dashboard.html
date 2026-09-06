@@ -1,0 +1,181 @@
+<div class="dashboard-layout">
+  <!-- Sidebar الموجود عندك -->
+  <app-sidebar></app-sidebar>
+
+  <div class="dashboard-main">
+    <!-- Header الموجود عندك -->
+    <app-search-header></app-search-header>
+
+    <!-- Dashboard Content -->
+    <main class="dashboard-content">
+      <!-- Welcome -->
+      <section class="welcome">
+        <h1>Welcome back , Youssef 👋</h1>
+        <p>Let's continue what you started</p>
+      </section>
+
+      <!-- Stats -->
+      <section class="stats">
+        <div class="stat-card">
+          <div class="stat-icon purple">🎓</div>
+          <h3>6</h3>
+          <p>Courses in progress</p>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon green">✓</div>
+          <h3>18</h3>
+          <p>Courses Completed</p>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon yellow">☆</div>
+          <h3>84%</h3>
+          <p>Avg . quiz score</p>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon pink">♢</div>
+          <h3>12</h3>
+          <p>Day Streak</p>
+        </div>
+      </section>
+
+      <!-- My Courses -->
+      <section class="courses-section">
+        <h2>My Courses</h2>
+
+        <div class="course-card">
+          <div class="course-icon purple-course">&lt;/&gt;</div>
+
+          <div class="course-info">
+            <h3>React Fundamentals</h3>
+            <p>Lesson 14 - Handling Component State</p>
+
+            <div class="progress">
+              <div class="progress-bar purple-progress"></div>
+            </div>
+          </div>
+
+          <span class="percentage purple-percent">72%</span>
+        </div>
+
+        <div class="course-card">
+          <div class="course-icon yellow-course">&lt;/&gt;</div>
+
+          <div class="course-info">
+            <h3>Python for Beginners</h3>
+            <p>Lesson 8 — Loops and Iteration</p>
+
+            <div class="progress">
+              <div class="progress-bar yellow-progress"></div>
+            </div>
+          </div>
+
+          <span class="percentage yellow-percent">45%</span>
+        </div>
+
+        <div class="course-card">
+          <div class="course-icon green-course">&lt;/&gt;</div>
+
+          <div class="course-info">
+            <h3>Git &amp; GitHub Essentials</h3>
+            <p>Lesson 11 — Pull Requests</p>
+
+            <div class="progress">
+              <div class="progress-bar green-progress"></div>
+            </div>
+          </div>
+
+          <span class="percentage green-percent">90%</span>
+        </div>
+      </section>
+
+      <!-- Bottom -->
+      <section class="bottom-section">
+        <!-- Quizzes -->
+        <div class="quizzes">
+          <div class="section-title">
+            <h2>Quizzes</h2>
+            <button>view all →</button>
+          </div>
+
+          <div class="quiz-card">
+            <div class="quiz-item">
+              <div>
+                <h3>JavaScript Arrays</h3>
+                <p>10 questions · 15 min</p>
+              </div>
+
+              <button class="start-btn">Start</button>
+            </div>
+
+            <div class="quiz-item">
+              <div>
+                <h3>Python Loops</h3>
+                <p>8 questions · 10 min</p>
+              </div>
+
+              <button class="start-btn">Start</button>
+            </div>
+
+            <div class="quiz-item">
+              <div>
+                <h3>Git Basics</h3>
+                <p>12 questions · 18 min</p>
+              </div>
+
+              <button class="start-btn">Start</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Weekly Activity -->
+        <div class="activity">
+          <div class="section-title">
+            <h2>Weekly activity</h2>
+          </div>
+
+          <div class="activity-card">
+            <div class="chart">
+              <div class="bar-item">
+                <div class="bar"></div>
+                <span>Mon</span>
+              </div>
+
+              <div class="bar-item">
+                <div class="bar"></div>
+                <span>Tue</span>
+              </div>
+
+              <div class="bar-item">
+                <div class="bar"></div>
+                <span>Wed</span>
+              </div>
+
+              <div class="bar-item active">
+                <div class="bar"></div>
+                <span>Thu</span>
+              </div>
+
+              <div class="bar-item">
+                <div class="bar"></div>
+                <span>Fri</span>
+              </div>
+
+              <div class="bar-item">
+                <div class="bar"></div>
+                <span>Sat</span>
+              </div>
+
+              <div class="bar-item">
+                <div class="bar"></div>
+                <span>Sun</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>

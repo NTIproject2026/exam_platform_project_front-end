@@ -1,0 +1,60 @@
+
+<app-sidebar></app-sidebar>
+
+<main class="content">
+  <div class="top-section">
+    <h1 class="page-title">Delete Courses</h1>
+    <button
+      type="button"
+      class="btn-delete-selected"
+      [disabled]="!hasSelectedCourses"
+      [style.opacity]="hasSelectedCourses ? '1' : '0.5'"
+      [style.cursor]="hasSelectedCourses ? 'pointer' : 'not-allowed'"
+      (click)="onDeleteSelected()"
+    >
+      <i class="fa-solid fa-trash"></i> Delete Selected
+    </button>
+  </div>
+
+  <div class="delete-list">
+    <div class="delete-card" *ngFor="let course of courses">
+      <div class="checkbox-wrapper">
+        <input
+          type="checkbox"
+          [checked]="course.selected"
+          (change)="toggleSelection(course)"
+          title="course"
+        />
+      </div>
+      <div class="course-brand" [ngClass]="course.brandClass">
+        <i [class]="course.icon"></i>
+      </div>
+      <div class="course-info">
+        <h3>{{ course.title }}</h3>
+        <p>{{ course.lessonsCount }} lessons • {{ course.duration }} duration</p>
+      </div>
+      <button
+        type="button"
+        class="btn-delete-icon"
+        (click)="onDeleteSingle(course)"
+        title="delete"
+      >
+        <i class="fa-solid fa-trash"></i>
+      </button>
+    </div>
+  </div>
+</main>
+
+<div class="modal-overlay" [class.active]="isModalOpen" [style.display]="isModalOpen ? 'flex' : 'none'" (click)="onOverlayClick($event)">
+  <div class="modal-box">
+    <div class="modal-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+    <h2>Are you sure?</h2>
+    <p >
+      This action cannot be undone. This course will be permanently removed.
+    </p>
+    <div class="modal-actions">
+      <button type="button" class="btn-cancel" (click)="closeModal()">Cancel</button>
+      <button type="button" class="btn-confirm" (click)="confirmDelete()">Yes, Delete</button>
+    </div>
+  </div>
+</div>

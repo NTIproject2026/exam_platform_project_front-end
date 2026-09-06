@@ -1,0 +1,84 @@
+<app-search-header></app-search-header>
+<app-sidebar></app-sidebar>
+<main class="content">
+  <div>
+    <h1 class="welcome-title">Welcome back , Admin Youssef 👋</h1>
+    <p class="welcome-subtitle">Let's continue what you started</p>
+  </div>
+  <div class="metrics-grid">
+    <div class="metric-card" *ngFor="let metric of metrics">
+      <div class="metric-icon" [ngClass]="metric.bgClass">
+        <i [class]="metric.icon"></i>
+      </div>
+      <div class="metric-value">{{ metric.value }}</div>
+      <div class="metric-label">{{ metric.label }}</div>
+    </div>
+  </div>
+  <div class="middle-section">
+    <div class="card">
+      <h2 class="card-title">Weekly activity</h2>
+      <div class="chart-box">
+        <div class="chart-line"></div>
+        <div class="chart-bars-container">
+          <div class="bar-wrapper" *ngFor="let day of weeklyActivity">
+            <div
+              class="chart-bar"
+              [style.height.%]="day.value"
+              [title]="day.label + ': ' + day.value + '% Activity'"
+            ></div>
+          </div>
+        </div>
+        <div class="chart-days">
+          <span *ngFor="let day of weeklyActivity">{{ day.label }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h2 class="card-title">Most studied Courses</h2>
+      <div class="course-list">
+        <div class="course-item" *ngFor="let course of topCourses">
+          <div class="course-info">
+            <span>{{ course.rank }}. {{ course.name }}</span>
+            <span>{{ course.percentage }}%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" [style.width.%]="course.percentage"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <h2 class="card-title">Last Joined</h2>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Student name</th>
+            <th>Course</th>
+            <th>Passed Tests</th>
+            <th>State</th>
+            <th>Student Dashboards</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let student of filteredStudents">
+            <td>{{ student.id }}. {{ student.name }}</td>
+            <td>{{ student.course }}</td>
+            <td>{{ student.passedTests }}</td>
+            <td>{{ student.state }}</td>
+            <td>
+              <button
+                type="button"
+                class="btn-action"
+                (click)="onNavigateToDashboard(student.name)"
+              >
+                Here
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
